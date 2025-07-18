@@ -1,0 +1,14 @@
+@let transcript = transcript$ | async;
+<div class="transcript">
+  @for (utterance of transcript?.utterances; track utterance.timestamp) {
+    <lib-utterance [utterance]="utterance"></lib-utterance>
+  }
+  @let typing = typing$ | async;
+  @if (typing) {
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  }
+</div>

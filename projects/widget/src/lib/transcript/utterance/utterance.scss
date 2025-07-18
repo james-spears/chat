@@ -1,0 +1,19 @@
+@use "tailwindcss";
+
+.ut--base {
+  display: flex;
+}
+
+.ut--agent {
+  @extend .ut--base;
+  justify-content: flex-start;
+}
+
+.ut--user {
+  @extend .ut--base;
+  justify-content: flex-end;
+}
+
+.rounded-agent {
+  border-top-left-radius: 0;
+}

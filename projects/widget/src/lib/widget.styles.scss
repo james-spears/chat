@@ -1,0 +1,60 @@
+@use "tailwindcss";
+
+.example-boundary {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  // margin: 8px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+}
+.example-icon {
+  width: 64px;
+  height: 64px;
+  max-height: 500px;
+  border: solid 1px #ccc;
+  //   border-radius: 50%;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: move;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  z-index: 1000;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow:
+    0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.example-box {
+  @extend .example-icon;
+  height: 80%;
+  width: 300px;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.example-icon:active {
+  box-shadow:
+    0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.icon-button {
+  padding: 8px;
+  display: flex;
+  cursor: pointer;
+}
+.icon {
+  height: 24px;
+  width: 24px;
+}
+.text-input {
+  width: 100%;
+  //   border: 1px;
+}

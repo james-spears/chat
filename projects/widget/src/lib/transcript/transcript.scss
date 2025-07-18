@@ -1,0 +1,39 @@
+.transcript {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 12px;
+  scroll-behavior: smooth;
+}
+
+$animationTime: 0.8s;
+$dotSize: 8px;
+.loader {
+  display: flex;
+  justify-content: flex-end;
+}
+.loader span {
+  display: inline-block;
+  vertical-align: middle;
+  width: $dotSize;
+  height: $dotSize;
+  background: black;
+  border-radius: $dotSize;
+  animation: loader $animationTime infinite alternate;
+}
+.loader span:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+.loader span:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+@keyframes loader {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+}
