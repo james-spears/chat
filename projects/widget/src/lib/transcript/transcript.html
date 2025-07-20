@@ -1,6 +1,6 @@
-@let transcript = transcript$ | async;
+@let _transcript = transcript$ | async;
 <div class="transcript">
-  @for (utterance of transcript?.utterances; track utterance.timestamp) {
+  @for (utterance of _transcript; track utterance) {
     <lib-utterance [utterance]="utterance"></lib-utterance>
   }
   @let typing = typing$ | async;

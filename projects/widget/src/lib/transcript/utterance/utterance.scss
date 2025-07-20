@@ -2,18 +2,44 @@
 
 .ut--base {
   display: flex;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: start;
 }
 
-.ut--agent {
+.ut--base > * {
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap; /* ancient Opera */
+  white-space: -o-pre-wrap; /* newer Opera */
+  white-space: pre-wrap; /* Chrome; W3C standard */
+  word-wrap: break-word; /* IE */
+}
+
+.ut--agent,
+.ut--bot {
   @extend .ut--base;
   justify-content: flex-start;
+
+  .bg-agent,
+  .bg-bot {
+    background-color: aliceblue;
+  }
 }
 
 .ut--user {
   @extend .ut--base;
   justify-content: flex-end;
+
+  .bg-user {
+    background-color: rgb(244, 244, 244);
+  }
 }
 
 .rounded-agent {
   border-top-left-radius: 0;
+}
+
+.utterance {
+  display: flex;
+  flex-direction: column;
 }

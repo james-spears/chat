@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
-export type Participant = 'agent' | 'user';
+export type Participant = 'bot' | 'agent' | 'user';
 
 export interface IUtterance {
   text: string;
@@ -14,6 +14,7 @@ export interface IUtterance {
   imports: [DatePipe],
   templateUrl: './utterance.html',
   styleUrl: './utterance.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class Utterance {
   @Input() utterance: IUtterance | undefined;
