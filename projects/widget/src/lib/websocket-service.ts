@@ -2,14 +2,28 @@ import { Injectable } from '@angular/core';
 import { WebSocketSubject, webSocket } from 'rxjs/webSocket';
 import { Subject, Observable, tap } from 'rxjs';
 
+declare global {
+  interface Window {
+    clientId: string; // change this
+  }
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class WebSocketService {
   private socket$: WebSocketSubject<any>; // Declare the WebSocketSubject
-  // sessionId$: Observable<string>;
+  clientId: string = '';
 
   constructor() {
+    if (typeof window !== 'undefined') {
+      const clientId = window.clientId;
+      if (!clientId) {
+        throw new Error('clientId not found');
+      } else {
+        this.clientId = clientId;
+      }
+    }
     // Initialize the WebSocket connection to your server URL
     this.socket$ = webSocket('ws://localhost:8080');
     this.socket$
@@ -32,7 +46,7 @@ export class WebSocketService {
   // Method to send messages to the WebSocket server
   sendMessage(message: any): void {
     console.log('message', message);
-    this.socket$.next(message);
+    this.socket$.next({ ...message, clientId: this.clientId });
   }
 
   // Method to receive messages as an Observable

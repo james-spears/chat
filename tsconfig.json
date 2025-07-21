@@ -46,12 +46,6 @@
     },
     {
       "path": "./projects/sdk/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/test/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/test/tsconfig.spec.json"
     }
   ]
 }

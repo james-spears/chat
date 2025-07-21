@@ -16,6 +16,11 @@
   </head>
   <body>
     <div>Test Native HTML + JS</div>
-    <script src="dist/sdk/browser/main.js" type="module"></script>
+    <script>
+      window.clientId = "a877327b-c26d-4788-8854-171573c173f7";
+      const script = document.createElement("script");
+      script.src = "dist/sdk/browser/main.js";
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>

@@ -30,6 +30,7 @@ export class Widget {
 
   protected toggle() {
     this.isOpen.set(!this.isOpen());
+    this.scrollToBottom();
   }
 
   formGroup: FormGroup = inject(FormBuilder).group({
